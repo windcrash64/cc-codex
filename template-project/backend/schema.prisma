@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String         @id @default(cuid())
+  email          String         @unique
+  name           String?
+  memberships    Membership[]
+  assets         Asset[]
+  reviews        Review[]
+  createdAt      DateTime       @default(now())
+}
+
+model Organization {
+  id             String         @id @default(cuid())
+  name           String
+  memberships    Membership[]
+  subscriptions  Subscription[]
+  createdAt      DateTime       @default(now())
+}
+
+model Membership {
+  id             String         @id @default(cuid())
+  userId         String
+  organizationId String
+  role           String
+  user           User           @relation(fields: [userId], references: [id])
+  organization   Organization   @relation(fields: [organizationId], references: [id])
+}
+
+model Asset {
+  id             String         @id @default(cuid())
+  ownerId        String
+  category       String
+  name           String
+  slug           String         @unique
+  priceCents     Int
+  owner          User           @relation(fields: [ownerId], references: [id])
+  versions       AssetVersion[]
+  reviews        Review[]
+  purchases      Purchase[]
+  createdAt      DateTime       @default(now())
+}
+
+model AssetVersion {
+  id             String         @id @default(cuid())
+  assetId        String
+  version        String
+  changelog      String
+  compatibility  String
+  asset          Asset          @relation(fields: [assetId], references: [id])
+  createdAt      DateTime       @default(now())
+}
+
+model Purchase {
+  id             String         @id @default(cuid())
+  assetId        String
+  buyerId        String
+  amountCents    Int
+  status         String
+  asset          Asset          @relation(fields: [assetId], references: [id])
+  createdAt      DateTime       @default(now())
+}
+
+model Subscription {
+  id             String         @id @default(cuid())
+  organizationId String
+  plan           String
+  status         String
+  organization   Organization   @relation(fields: [organizationId], references: [id])
+}
+
+model Review {
+  id             String         @id @default(cuid())
+  assetId        String
+  userId         String
+  rating         Int
+  body           String
+  asset          Asset          @relation(fields: [assetId], references: [id])
+  user           User           @relation(fields: [userId], references: [id])
+}

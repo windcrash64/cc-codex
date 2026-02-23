@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ModelMarket V2 — AI Asset Marketplace</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="logo">ModelMarket</div>
+      <nav>
+        <a href="#showcase">Showcase</a>
+        <a href="#metrics">Metrics</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <button class="btn ghost">Creator Studio</button>
+    </header>
+
+    <main>
+      <section class="hero reveal">
+        <div>
+          <p class="eyebrow">AI RULESETS • SKILLS • AGENTS • WORKFLOWS</p>
+          <h1>Ship AI automations with enterprise-grade trust.</h1>
+          <p class="subcopy">Discover verified assets, deploy workflows in minutes, and scale outcomes with observability-driven insights.</p>
+          <div class="cta-row">
+            <button class="btn primary pulse">Explore Marketplace</button>
+            <button class="btn">Watch Demo</button>
+          </div>
+        </div>
+        <div class="spline-slot" aria-label="3D showcase placeholder">
+          <p>Spline scene slot</p>
+        </div>
+      </section>
+
+      <section id="showcase" class="grid reveal">
+        <article class="card">
+          <h3>Hero Showcase</h3>
+          <p>Animated product narrative with guided CTA and deployment proof points.</p>
+        </article>
+        <article class="card">
+          <h3>Workflow Story Strip</h3>
+          <p>Creator publishing to buyer adoption journey with conversion checkpoints.</p>
+        </article>
+        <article class="card">
+          <h3>Interactive Gallery</h3>
+          <p>Filterable assets with motion transitions and quick-preview drawers.</p>
+        </article>
+        <article class="card">
+          <h3>Trust & Proof</h3>
+          <p>Verification pipeline and usage metrics communicated with subtle motion.</p>
+        </article>
+      </section>
+
+      <section id="metrics" class="metrics reveal">
+        <div class="kpis">
+          <div class="kpi"><span data-count="146200">0</span><label>MRR</label></div>
+          <div class="kpi"><span data-count="37">0</span><label>Conversion %</label></div>
+          <div class="kpi"><span data-count="412">0</span><label>ARPA</label></div>
+          <div class="kpi"><span data-count="4">0</span><label>Churn %</label></div>
+        </div>
+        <div class="filters" role="tablist" aria-label="Time Range">
+          <button data-range="7">7D</button>
+          <button data-range="30" class="active">30D</button>
+          <button data-range="90">90D</button>
+          <button data-range="365">12M</button>
+        </div>
+        <div class="charts">
+          <canvas id="trendChart" width="700" height="260" aria-label="Revenue trend"></canvas>
+          <canvas id="categoryChart" width="700" height="260" aria-label="Category performance"></canvas>
+        </div>
+      </section>
+
+      <section class="infographic reveal">
+        <h2>Marketplace Flywheel</h2>
+        <svg viewBox="0 0 600 180" role="img" aria-label="Marketplace flywheel">
+          <path id="flow" d="M20,90 C120,10 220,170 320,90 C420,10 520,170 580,90" />
+          <circle class="node" cx="20" cy="90" r="8" />
+          <circle class="node" cx="200" cy="90" r="8" />
+          <circle class="node" cx="390" cy="90" r="8" />
+          <circle class="node" cx="580" cy="90" r="8" />
+        </svg>
+      </section>
+
+      <section id="pricing" class="pricing reveal">
+        <article class="price-card"><h3>Pro</h3><p>$39/mo</p><span>For creators</span></article>
+        <article class="price-card featured"><h3>Team</h3><p>$149/mo</p><span>For growing ops teams</span></article>
+        <article class="price-card"><h3>Enterprise</h3><p>Custom</p><span>SSO + policy bundles</span></article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

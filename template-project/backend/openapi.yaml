@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: ModelMarket API
+  version: 0.1.0
+paths:
+  /v1/assets:
+    get:
+      summary: List marketplace assets
+      parameters:
+        - in: query
+          name: category
+          schema: { type: string }
+        - in: query
+          name: q
+          schema: { type: string }
+      responses:
+        '200':
+          description: Asset list
+  /v1/assets/{slug}:
+    get:
+      summary: Retrieve asset detail page payload
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Asset detail payload
+  /v1/checkout/session:
+    post:
+      summary: Create Stripe checkout session
+      responses:
+        '201':
+          description: Checkout session created
+  /v1/analytics/overview:
+    get:
+      summary: Fetch KPI and chart data for creator dashboard
+      responses:
+        '200':
+          description: Analytics snapshot
